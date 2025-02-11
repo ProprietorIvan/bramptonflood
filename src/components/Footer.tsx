@@ -1,6 +1,15 @@
-import React from 'react';
-import { Phone, Mail, MapPin, ExternalLink, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ExternalLink,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import Link from "next/link";
 
 interface SocialLinkProps {
   href: string;
@@ -9,7 +18,7 @@ interface SocialLinkProps {
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => (
-  <a 
+  <a
     href={href}
     className="p-2 bg-red-800 hover:bg-white hover:text-red-900 transition-all duration-300 rounded-lg"
     aria-label={label}
@@ -20,28 +29,28 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => (
 
 const Footer: React.FC = () => {
   const serviceAreas = [
-    'Brampton',
-    'Toronto',
-    'North York',
-    'Etobicoke',
-    'Scarborough',
-    'Mississauga',
-    'Greater Toronto Area'
+    "Brampton",
+    "Toronto",
+    "North York",
+    "Etobicoke",
+    "Scarborough",
+    "Mississauga",
+    "Greater Toronto Area",
   ];
 
   const services = [
-    'Water Damage Restoration',
-    'Flood Cleanup',
-    'Water Extraction',
-    'Structural Drying',
-    'Property Restoration'
+    "Water Damage Restoration",
+    "Flood Cleanup",
+    "Water Extraction",
+    "Structural Drying",
+    "Property Restoration",
   ];
 
   const socialLinks: SocialLinkProps[] = [
-    { href: '#', icon: <Facebook size={20} />, label: 'Facebook' },
-    { href: '#', icon: <Twitter size={20} />, label: 'Twitter' },
-    { href: '#', icon: <Instagram size={20} />, label: 'Instagram' },
-    { href: '#', icon: <Linkedin size={20} />, label: 'LinkedIn' }
+    { href: "#", icon: <Facebook size={20} />, label: "Facebook" },
+    { href: "#", icon: <Twitter size={20} />, label: "Twitter" },
+    { href: "#", icon: <Instagram size={20} />, label: "Instagram" },
+    { href: "#", icon: <Linkedin size={20} />, label: "LinkedIn" },
   ];
 
   return (
@@ -56,30 +65,38 @@ const Footer: React.FC = () => {
                 Brampton Flood Restoration
               </h2>
               <p className="text-red-200 mb-6 leading-relaxed max-w-md">
-                Professional flood damage restoration services across the Greater Toronto Area. 
-                Our expert team delivers quality solutions for all water damage situations.
+                Professional flood damage restoration services across the
+                Greater Toronto Area. Our expert team delivers quality solutions
+                for all water damage situations.
               </p>
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 text-red-200">
-                  <MapPin size={16} className="text-red-400" />
-                  <span>Downtown Brampton, ON</span>
+                <div className="flex items-start gap-2 text-red-200">
+                  <MapPin
+                    size={16}
+                    className="text-red-400 mt-1 flex-shrink-0"
+                  />
+                  <div>
+                    <p>4 Market St</p>
+                    <p>Brampton, ON L6X 1H4</p>
+                    <p>Canada</p>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <a 
+                  <a
                     href="tel:647-555-0123"
                     className="inline-flex items-center gap-2 text-red-200 hover:text-white transition-colors"
                   >
                     <Phone size={16} className="text-red-400" />
                     647-555-0123
                   </a>
-                  <a 
+                  <a
                     href="mailto:office@bramptonflood.com"
                     className="inline-flex items-center gap-2 text-red-200 hover:text-white transition-colors"
                   >
                     <Mail size={16} className="text-red-400" />
                     office@bramptonflood.com
                   </a>
-                  <a 
+                  <a
                     href="https://bramptonflood.com"
                     className="inline-flex items-center gap-2 text-red-200 hover:text-white transition-colors"
                   >
@@ -96,8 +113,10 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {serviceAreas.map((area) => (
                   <li key={area}>
-                    <Link 
-                      href={`/service-areas/${area.toLowerCase().replace(/\s+/g, '-')}`}
+                    <Link
+                      href={`/service-areas/${area
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
                       className="text-red-200 hover:text-white transition-colors"
                     >
                       {area}
@@ -113,8 +132,10 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {services.map((service) => (
                   <li key={service}>
-                    <Link 
-                      href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
+                    <Link
+                      href={`/services/${service
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
                       className="text-red-200 hover:text-white transition-colors"
                     >
                       {service}
@@ -129,9 +150,10 @@ const Footer: React.FC = () => {
           <div className="border-t border-red-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="text-red-200 text-sm">
-                © {new Date().getFullYear()} Brampton Flood Restoration. All rights reserved.
+                © {new Date().getFullYear()} Brampton Flood Restoration. All
+                rights reserved.
               </div>
-              
+
               <div className="flex items-center gap-4">
                 {socialLinks.map((social) => (
                   <SocialLink key={social.label} {...social} />
@@ -139,16 +161,22 @@ const Footer: React.FC = () => {
               </div>
 
               <div className="flex gap-6 text-sm">
-                <Link href="/privacy-policy" className="text-red-200 hover:text-white transition-colors">
+                <Link
+                  href="/privacy-policy"
+                  className="text-red-200 hover:text-white transition-colors"
+                >
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="text-red-200 hover:text-white transition-colors">
+                <Link
+                  href="/terms"
+                  className="text-red-200 hover:text-white transition-colors"
+                >
                   Terms & Conditions
                 </Link>
               </div>
             </div>
           </div>
-          
+
           {/* Company Info Banner */}
           <div className="mt-8 text-center">
             <p className="text-red-200">
